@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyle Owen | BSIT Graduate & IT Specialist Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0d14',
+                            card: '#121824',
+                            border: '#1e293b',
+                            cyan: '#06b6d4',
+                            purple: '#8b5cf6',
+                            emerald: '#10b981',
+                        }
+                    },
+                    backgroundImage: {
+                        'glow-radial': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #080b11;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(18, 24, 36, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(6, 182, 212, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(6, 182, 212, 0.15);
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.3);
+        }
+
+        .glow-purple {
+            box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.3);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080b11;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-300 selection:bg-cyan-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 p-[2px] transition-transform duration-300 group-hover:scale-105">
+                    <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+                        <span class="font-mono font-bold text-cyan-400 text-lg">&lt;KO/&gt;</span>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-bold text-lg text-white tracking-wide group-hover:text-cyan-400 transition-colors">Kyle Owen</span>
+                    <span class="block text-xs font-mono text-slate-400">BSIT Graduate</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-1">
+                <a href="#about" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 transition-all">About</a>
+                <a href="#skills" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 transition-all">Skills</a>
+                <a href="#projects" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 transition-all">Projects</a>
+                <a href="#education" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 transition-all">Education</a>
+                <a href="#contact" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-cyan-400 hover:bg-slate-800/50 transition-all">Contact</a>
+            </nav>
+
+            <!-- Action Button -->
+            <div class="hidden md:flex items-center space-x-3">
+                <a href="#contact" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-medium text-sm transition-all duration-300 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 flex items-center space-x-2">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                    <span>Hire Me</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-slate-800 px-4 pt-2 pb-6 space-y-2">
+            <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-base font-medium">About</a>
+            <a href="#skills" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-base font-medium">Skills</a>
+            <a href="#projects" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-base font-medium">Projects</a>
+            <a href="#education" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-base font-medium">Education</a>
+            <a href="#contact" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-base font-medium">Contact</a>
+            <div class="pt-2">
+                <a href="#contact" class="mobile-nav-link w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium text-center block">Hire Me</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden">
+        <!-- Background Ambient Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-10 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute top-1/3 left-10 w-[300px] h-[300px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-mono tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        <span>Available for Entry-Level IT Roles</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
+                        Hi, I'm <span class="text-gradient">Kyle Owen</span>
+                    </h1>
+
+                    <p class="text-xl sm:text-2xl text-slate-300 font-medium">
+                        BSIT Graduate <span class="text-slate-500">|</span> Systems, Networks & Cloud Enthusiast
+                    </p>
+
+                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Passionate Information Technology graduate equipped with hands-on enterprise laboratory experience in Active Directory administration, virtualized network topology design, PowerShell scripting, and cloud setup.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#projects" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm transition-all duration-300 shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 flex items-center space-x-2">
+                            <span>Explore Projects</span>
+                            <i class="fa-solid fa-arrow-down text-xs"></i>
+                        </a>
+
+                        <a href="#contact" class="px-7 py-3.5 rounded-xl bg-slate-900/90 border border-slate-700/80 hover:border-cyan-500/50 text-slate-200 hover:text-white font-semibold text-sm transition-all duration-300 hover:-translate-y-0.5 flex items-center space-x-2">
+                            <i class="fa-solid fa-envelope text-slate-400"></i>
+                            <span>Get In Touch</span>
+                        </a>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="flex items-center justify-center lg:justify-start space-x-4 pt-6 border-t border-slate-800/80">
+                        <span class="text-xs font-mono text-slate-500 uppercase tracking-wider">Connect with me:</span>
+                        <a href="https://github.com" target="_blank" class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-all">
+                            <i class="fa-brands fa-github text-lg"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-all">
+                            <i class="fa-brands fa-linkedin-in text-lg"></i>
+                        </a>
+                        <a href="mailto:kyleowen.it@gmail.com" class="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-all">
+                            <i class="fa-solid fa-at text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Graphic Interactive Mockup -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Terminal Graphic Window -->
+                        <div class="rounded-2xl glass-panel p-4 shadow-2xl border border-slate-700/60 font-mono text-xs sm:text-sm">
+                            <!-- Terminal Header -->
+                            <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+                                <div class="flex space-x-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                                </div>
+                                <div class="text-slate-500 text-xs">kyle@it-workstation:~</div>
+                            </div>
+                            
+                            <!-- Terminal Content -->
+                            <div class="space-y-3 text-slate-300">
+                                <div>
+                                    <span class="text-cyan-400">PS C:\Users\Kyle&gt;</span> <span class="text-yellow-300">Get-ITCandidateProfile</span> -Name "Kyle Owen"
+                                </div>
+                                <div class="p-3 bg-slate-950/80 rounded-lg border border-slate-800/80 text-xs leading-relaxed space-y-1">
+                                    <p><span class="text-purple-400">Degree:</span> BS Information Technology (2026)</p>
+                                    <p><span class="text-purple-400">Focus:</span> System Admin, Network Infrastructure</p>
+                                    <p><span class="text-purple-400">Core_Labs:</span> Active Directory, VMware, Cisco</p>
+                                    <p><span class="text-purple-400">Status:</span> <span class="text-emerald-400 font-semibold">Ready for Employment</span></p>
+                                </div>
+                                <div>
+                                    <span class="text-cyan-400">PS C:\Users\Kyle&gt;</span> <span class="text-yellow-300">Test-NetworkConnectivity</span> -Target "Enterprise-Cloud"
+                                </div>
+                                <div class="text-emerald-400 flex items-center space-x-2">
+                                    <i class="fa-solid fa-check text-xs"></i>
+                                    <span>PING success! 0% packet loss. Latency &lt;1ms.</span>
+                                </div>
+                                <div class="pt-2 flex items-center">
+                                    <span class="text-cyan-400">PS C:\Users\Kyle&gt;</span>
+                                    <span class="w-2 h-4 bg-cyan-400 inline-block ml-2 animate-pulse"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge 1 -->
+                        <div class="absolute -bottom-6 -left-6 glass-panel px-4 py-3 rounded-2xl border border-slate-700/80 shadow-xl flex items-center space-x-3 hidden sm:flex">
+                            <div class="w-10 h-10 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                                <i class="fa-solid fa-server text-lg"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Lab Infrastructure</div>
+                                <div class="text-sm font-bold text-white">Active Directory & GPO</div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge 2 -->
+                        <div class="absolute -top-6 -right-6 glass-panel px-4 py-3 rounded-2xl border border-slate-700/80 shadow-xl flex items-center space-x-3 hidden sm:flex">
+                            <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center">
+                                <i class="fa-solid fa-terminal text-lg"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Automation</div>
+                                <div class="text-sm font-bold text-white">PowerShell & Bash</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 relative border-t border-slate-800/80 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">01. About Me</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Technical Background & Vision</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Main Bio Card -->
+                <div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold text-white flex items-center space-x-3">
+                            <i class="fa-solid fa-user-gear text-cyan-400"></i>
+                            <span>Fresh Graduate with Real-World Drive</span>
+                        </h3>
+                        <p class="text-slate-300 leading-relaxed">
+                            As a fresh graduate with a **Bachelor of Science in Information Technology**, I bring a strong theoretical foundation combined with practical home lab experience. I specialize in designing and maintaining IT infrastructure, configuring secure local networks, and streamlining administrative tasks with automation scripts.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed">
+                            My career goal is to join an IT Operations, Helpdesk, or Systems Administration team where I can solve complex technical issues, optimize infrastructure uptime, and continuously grow toward Cloud Engineering.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 mt-6 border-t border-slate-800">
+                        <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                            <div class="text-2xl font-bold text-cyan-400">BSIT</div>
+                            <div class="text-xs text-slate-400 font-mono">Degree Earned</div>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                            <div class="text-2xl font-bold text-purple-400">10+</div>
+                            <div class="text-xs text-slate-400 font-mono">Hands-on Labs</div>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 col-span-2 sm:col-span-1">
+                            <div class="text-2xl font-bold text-emerald-400">100%</div>
+                            <div class="text-xs text-slate-400 font-mono">Commitment</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlights Cards -->
+                <div class="lg:col-span-5 space-y-4 flex flex-col justify-between">
+                    <div class="glass-card rounded-2xl p-6 flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl shrink-0">
+                            <i class="fa-solid fa-sitemap"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Infrastructure & Networking</h4>
+                            <p class="text-sm text-slate-400 mt-1">Configuring VLANs, active switches, routers, and Active Directory domains with custom security GPOs.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl shrink-0">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">System Automation</h4>
+                            <p class="text-sm text-slate-400 mt-1">Automating user account provisioning, system health checks, and log rotations using PowerShell & Bash.</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 flex items-start space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl shrink-0">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-white">Cloud Architecture Basics</h4>
+                            <p class="text-sm text-slate-400 mt-1">Setting up AWS EC2 instances, S3 storage buckets, and Virtual Private Clouds (VPC) with security groups.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Section -->
+    <section id="skills" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">02. Technical Arsenal</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Skills & Technologies</h2>
+                <p class="text-slate-400 mt-2">Tools, operating systems, and management platforms I work with.</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Skill Category 1 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-brands fa-windows"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Operating Systems</h3>
+                        <p class="text-xs text-slate-400 mb-6">Server & Workstation Management</p>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">Windows Server 2022</span>
+                                <span class="text-xs font-mono text-cyan-400">Advanced</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-cyan-400 h-1.5 rounded-full" style="width: 88%"></div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-sm pt-2">
+                                <span class="text-slate-300">Ubuntu / CentOS Linux</span>
+                                <span class="text-xs font-mono text-purple-400">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-purple-400 h-1.5 rounded-full" style="width: 75%"></div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-sm pt-2">
+                                <span class="text-slate-300">Windows 10/11 Workstation</span>
+                                <span class="text-xs font-mono text-cyan-400">Advanced</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-cyan-400 h-1.5 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Category 2 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Networking & Directory</h3>
+                        <p class="text-xs text-slate-400 mb-6">Domain & Network Infrastructure</p>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">Active Directory & GPO</span>
+                                <span class="text-xs font-mono text-cyan-400">Advanced</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-cyan-400 h-1.5 rounded-full" style="width: 90%"></div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-sm pt-2">
+                                <span class="text-slate-300">DNS, DHCP, TCP/IP</span>
+                                <span class="text-xs font-mono text-cyan-400">Advanced</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-cyan-400 h-1.5 rounded-full" style="width: 85%"></div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-sm pt-2">
+                                <span class="text-slate-300">VLANs & Routing (Cisco)</span>
+                                <span class="text-xs font-mono text-purple-400">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-purple-400 h-1.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Category 3 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-cloud font-bold"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Cloud & Virtualization</h3>
+                        <p class="text-xs text-slate-400 mb-6">Virtual Labs & Cloud Basics</p>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">VMware Workstation / VirtualBox</span>
+                                <span class="text-xs font-mono text-cyan-400">Advanced</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-cyan-400 h-1.5 rounded-full" style="width: 92%"></div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-sm pt-2">
+                                <span class="text-slate-300">AWS (EC2, S3, IAM)</span>
+                                <span class="text-xs font-mono text-purple-400">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-purple-400 h-1.5 rounded-full" style="width: 70%"></div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-sm pt-2">
+                                <span class="text-slate-300">Microsoft Azure Basics</span>
+                                <span class="text-xs font-mono text-slate-400">Basic</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-slate-600 h-1.5 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Category 4 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-terminal"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Automation & Tools</h3>
+                        <p class="text-xs text-slate-400 mb-6">Scripting & Diagnostics</p>
+                        
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-slate-300">PowerShell Scripting</span>
+                                <span class="text-xs font-mono text-cyan-400">Advanced</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-cyan-400 h-1.5 rounded-full" style="width: 85%"></div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-sm pt-2">
+                                <span class="text-slate-300">Bash / Shell Scripting</span>
+                                <span class="text-xs font-mono text-purple-400">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-purple-400 h-1.5 rounded-full" style="width: 72%"></div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-sm pt-2">
+                                <span class="text-slate-300">Cisco Packet Tracer / Git</span>
+                                <span class="text-xs font-mono text-cyan-400">Advanced</span>
+                            </div>
+                            <div class="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-cyan-400 h-1.5 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative border-t border-slate-800/80 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">03. Portfolio Projects</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Hands-On Labs & Case Studies</h2>
+                <p class="text-slate-400 mt-2">Click any project to inspect technical details and diagrams.</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+                <button class="filter-btn active px-5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-cyan-500 text-white shadow-lg shadow-cyan-500/25" data-filter="all">All Projects</button>
+                <button class="filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700" data-filter="sysadmin">Systems & Active Directory</button>
+                <button class="filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700" data-filter="networking">Networking & Cisco</button>
+                <button class="filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:border-slate-700" data-filter="scripting">Scripting & Cloud</button>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+                
+                <!-- Project Card 1 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between group cursor-pointer" data-category="sysadmin" onclick="openProjectModal('proj1')">
+                    <div>
+                        <!-- Header Preview Graphic -->
+                        <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center border-b border-slate-800 p-6">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-cyan-900/20 to-purple-900/20 group-hover:opacity-100 transition-opacity"></div>
+                            <i class="fa-solid fa-server text-6xl text-cyan-400/80 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-slate-950/80 border border-slate-700 text-cyan-400 font-mono text-[10px]">Windows Server 2022</span>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">Enterprise Active Directory & Network Lab</h3>
+                            <p class="text-slate-400 text-sm mt-2 line-clamp-3">
+                                Deployed a fully virtualized domain environment featuring Domain Controllers, DNS/DHCP scopes, Organizational Units, and security GPOs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs">Active Directory</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs">GPO</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs">PowerShell</span>
+                        </div>
+
+                        <div class="flex items-center text-xs font-semibold text-cyan-400 group-hover:translate-x-1 transition-transform">
+                            <span>View Architecture & Details</span>
+                            <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between group cursor-pointer" data-category="networking" onclick="openProjectModal('proj2')">
+                    <div>
+                        <!-- Header Preview Graphic -->
+                        <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center border-b border-slate-800 p-6">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-purple-900/20 to-blue-900/20 group-hover:opacity-100 transition-opacity"></div>
+                            <i class="fa-solid fa-network-wired text-6xl text-purple-400/80 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-slate-950/80 border border-slate-700 text-purple-400 font-mono text-[10px]">Cisco Packet Tracer</span>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">Multi-Department VLAN & Routing Simulation</h3>
+                            <p class="text-slate-400 text-sm mt-2 line-clamp-3">
+                                Designed a campus network topology with separated department VLANs, dynamic OSPF routing, Inter-VLAN communication, and ACL security rules.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs">VLANs</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs">OSPF</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs">ACLs</span>
+                        </div>
+
+                        <div class="flex items-center text-xs font-semibold text-purple-400 group-hover:translate-x-1 transition-transform">
+                            <span>View Topology & Details</span>
+                            <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between group cursor-pointer" data-category="scripting" onclick="openProjectModal('proj3')">
+                    <div>
+                        <!-- Header Preview Graphic -->
+                        <div class="h-48 bg-slate-900 relative overflow-hidden flex items-center justify-center border-b border-slate-800 p-6">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-emerald-900/20 to-cyan-900/20 group-hover:opacity-100 transition-opacity"></div>
+                            <i class="fa-solid fa-terminal text-6xl text-emerald-400/80 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="absolute top-3 right-3 px-2.5 py-1 rounded-md bg-slate-950/80 border border-slate-700 text-emerald-400 font-mono text-[10px]">PowerShell & Bash</span>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">Automated System Health & User Provisioning</h3>
+                            <p class="text-slate-400 text-sm mt-2 line-clamp-3">
+                                Developed administrative scripts that parse CSV files for automated bulk user creation in AD and perform nightly automated server log archiving.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0 space-y-4">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs">PowerShell</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs">Automation</span>
+                            <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 font-mono text-xs">Task Scheduler</span>
+                        </div>
+
+                        <div class="flex items-center text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition-transform">
+                            <span>View Script & Details</span>
+                            <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section id="education" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">04. Education & Background</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Academic Journey & Credentials</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Education Timeline -->
+                <div class="lg:col-span-7 space-y-6">
+                    <h3 class="text-xl font-bold text-white flex items-center space-x-3 mb-6">
+                        <i class="fa-solid fa-graduation-cap text-cyan-400"></i>
+                        <span>Education Timeline</span>
+                    </h3>
+
+                    <!-- Item 1 -->
+                    <div class="relative pl-8 border-l-2 border-slate-800 space-y-2">
+                        <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-slate-950"></div>
+                        <span class="text-xs font-mono text-cyan-400">2022 - 2026</span>
+                        <h4 class="text-lg font-bold text-white">Bachelor of Science in Information Technology (BSIT)</h4>
+                        <p class="text-sm font-medium text-slate-300">State University of Information Technology</p>
+                        <p class="text-xs text-slate-400 leading-relaxed pt-2">
+                            Specialized in Systems Administration and Network Security. Graduated with honors. Completed Capstone Project: <span class="text-slate-200 font-medium">"Automated IT Support Asset & Inventory Management Portal"</span>.
+                        </p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative pl-8 border-l-2 border-slate-800 space-y-2 pt-6">
+                        <div class="absolute -left-[9px] top-6 w-4 h-4 rounded-full bg-slate-700 ring-4 ring-slate-950"></div>
+                        <span class="text-xs font-mono text-slate-400">2020 - 2022</span>
+                        <h4 class="text-lg font-bold text-white">Senior High School - TVL ICT Track</h4>
+                        <p class="text-sm font-medium text-slate-300">Technical Vocational High School</p>
+                        <p class="text-xs text-slate-400 leading-relaxed pt-2">
+                            Focus on Computer Systems Servicing (CSS), basic web design, and hardware troubleshooting fundamentals.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Certifications & Training -->
+                <div class="lg:col-span-5 space-y-4">
+                    <h3 class="text-xl font-bold text-white flex items-center space-x-3 mb-6">
+                        <i class="fa-solid fa-certificate text-purple-400"></i>
+                        <span>Certifications & Goals</span>
+                    </h3>
+
+                    <div class="glass-card rounded-2xl p-5 border border-slate-800 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl shrink-0">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs font-mono text-purple-400">Completed</div>
+                            <h4 class="text-sm font-bold text-white">AWS Academy Graduate - Cloud Foundations</h4>
+                            <p class="text-xs text-slate-400 mt-1">Amazon Web Services (2025)</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-5 border border-slate-800 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl shrink-0">
+                            <i class="fa-solid fa-spinner animate-spin text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs font-mono text-cyan-400">In Progress / Target 2026</div>
+                            <h4 class="text-sm font-bold text-white">CompTIA A+ & Cisco CCNA</h4>
+                            <p class="text-xs text-slate-400 mt-1">Self-study & Exam Preparation</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-5 border border-slate-800 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl shrink-0">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs font-mono text-emerald-400">NC II Certified</div>
+                            <h4 class="text-sm font-bold text-white">Computer Systems Servicing NC II</h4>
+                            <p class="text-xs text-slate-400 mt-1">TESDA Certification</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative border-t border-slate-800/80 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">05. Get In Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-2">Let's Connect & Work Together</h2>
+                <p class="text-slate-400 mt-2">I am actively seeking full-time opportunities in IT Support, Network Administration, or Junior Systems Engineering.</p>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-purple-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Contact Info Box -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 space-y-6">
+                        <h3 class="text-xl font-bold text-white">Direct Contact</h3>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="text-xs text-slate-400">Email Address</div>
+                                <div class="text-sm font-semibold text-white">kyleowen.it@gmail.com</div>
+                            </div>
+                            <button onclick="copyToClipboard('kyleowen.it@gmail.com', 'email-copy-msg')" class="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-cyan-400 transition-colors" title="Copy Email">
+                                <i class="fa-solid fa-copy"></i>
+                            </button>
+                        </div>
+                        <div id="email-copy-msg" class="text-xs text-emerald-400 hidden font-mono">Copied to clipboard!</div>
+
+                        <div class="flex items-center space-x-4 pt-2 border-t border-slate-800">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Location</div>
+                                <div class="text-sm font-semibold text-white">Metro Manila / Remote</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 pt-2 border-t border-slate-800">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-lg">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">LinkedIn</div>
+                                <a href="https://linkedin.com" target="_blank" class="text-sm font-semibold text-cyan-400 hover:underline">linkedin.com/in/kyleowen</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Mockup -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-mono text-slate-400 mb-2">YOUR NAME</label>
+                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-cyan-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-slate-400 mb-2">YOUR EMAIL</label>
+                                <input type="email" required placeholder="john@company.com" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-cyan-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-mono text-slate-400 mb-2">SUBJECT</label>
+                            <input type="text" required placeholder="Job Opportunity / Inquiry" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-cyan-500 transition-colors">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-mono text-slate-400 mb-2">MESSAGE</label>
+                            <textarea rows="4" required placeholder="Hi Kyle, we reviewed your portfolio and would like to invite you for an interview..." class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-cyan-500 transition-colors"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold text-sm transition-all duration-300 shadow-xl shadow-cyan-500/25 flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Send Message</span>
+                        </button>
+                        
+                        <div id="form-response" class="hidden text-center text-sm font-medium text-emerald-400 pt-2">
+                            Message sent successfully! Thank you for reaching out.
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-800/80 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© 2026 Kyle Owen | BSIT Fresh Graduate Portfolio. Designed with Tailwind CSS & HTML5.</p>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+        <div class="glass-panel max-w-3xl w-full rounded-2xl border border-slate-700/80 p-6 sm:p-8 max-h-[90vh] overflow-y-auto space-y-6 relative shadow-2xl">
+            <!-- Close Button -->
+            <button onclick="closeProjectModal()" class="absolute top-4 right-4 p-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Modal Content Injector -->
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        // Project Details Data
+        const projectsData = {
+            proj1: {
+                title: "Enterprise Active Directory & Network Lab",
+                subtitle: "Windows Server 2022 Domain Setup & Security Policies",
+                description: "Built a complete virtual enterprise environment using VirtualBox. Configured Domain Controllers, Dynamic Host Configuration Protocol (DHCP) scopes, Domain Name System (DNS) resolution, and custom Group Policy Objects (GPOs) to restrict USB storage access and map shared departmental drives automatically upon user login.",
+                highlights: [
+                    "Created automated user provisioning using PowerShell from CSV datasets.",
+                    "Configured GPO security compliance templates for password policies.",
+                    "Set up mapped network folders with strict NTFS permissions."
+                ],
+                tech: ["Windows Server 2022", "Active Directory", "DNS/DHCP", "GPO", "PowerShell", "VirtualBox"]
+            },
+            proj2: {
+                title: "Multi-Department VLAN & Dynamic Routing",
+                subtitle: "Layer 3 Switch Topology & OSPF Routing",
+                description: "Designed and implemented a scalable multi-building campus network topology in Cisco Packet Tracer. Segmented broadcast domains into isolated VLANs (HR, Finance, IT, Guest) and configured dynamic Inter-VLAN routing alongside OSPF dynamic routing.",
+                highlights: [
+                    "Implemented Access Control Lists (ACLs) preventing unauthorized guest VLAN access to servers.",
+                    "Configured DHCP relay agents across multiple router interfaces.",
+                    "Tested packet delivery latency and path redundancy."
+                ],
+                tech: ["Cisco Packet Tracer", "VLANs", "OSPF", "Inter-VLAN Routing", "ACLs", "Switches"]
+            },
+            proj3: {
+                title: "Automated Maintenance & User Provisioning Scripts",
+                subtitle: "PowerShell & Bash Task Automation",
+                description: "Developed a series of modular automation scripts to eliminate repetitive IT Support tasks. Features include daily system disk monitoring, event log archiving to zipped files, and bulk creation of domain accounts with temporary passwords.",
+                highlights: [
+                    "Configured Windows Task Scheduler triggers for automated execution.",
+                    "Implemented error handling and log file generation for audit trails.",
+                    "Reduced manual account setup time from minutes to seconds."
+                ],
+                tech: ["PowerShell 7", "Bash", "Task Scheduler", "Regex", "Windows CLI"]
+            }
+        };
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Project Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-cyan-500', 'text-white');
+                    b.classList.add('bg-slate-900', 'text-slate-400');
+                });
+                
+                // Add active state to clicked button
+                btn.classList.add('active', 'bg-cyan-500', 'text-white');
+                btn.classList.remove('bg-slate-900', 'text-slate-400');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Handlers
+        const modal = document.getElementById('project-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        function openProjectModal(key) {
+            const data = projectsData[key];
+            if (!data) return;
+
+            modalContent.innerHTML = `
+                <div class="space-y-4">
+                    <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 font-mono text-xs">${data.subtitle}</span>
+                    <h2 class="text-2xl font-bold text-white">${data.title}</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">${data.description}</p>
+
+                    <div class="space-y-2 pt-2">
+                        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider">Key Accomplishments:</h4>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300 text-sm">
+                            ${data.highlights.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800">
+                        <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Technologies Used:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${data.tech.map(t => `<span class="px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 text-xs font-mono">${t}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+            }, 10);
+        }
+
+        function closeProjectModal() {
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Close Modal on Background Click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeProjectModal();
+            }
+        });
+        
+        // Copy to Clipboard Utility
+        function copyToClipboard(text, elementId) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            const msgEl = document.getElementById(elementId);
+            msgEl.classList.remove('hidden');
+            setTimeout(() => {
+                msgEl.classList.add('hidden');
+            }, 2500);
+        }
+
+        // Contact Form Mock Action
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const formResponse = document.getElementById('form-response');
+            formResponse.classList.remove('hidden');
+            event.target.reset();
+            setTimeout(() => {
+                formResponse.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
