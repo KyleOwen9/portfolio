@@ -561,7 +561,7 @@
         </button>
     </div>
 
-    <script>
+   <script>
         // Project screenshots.
         // Make sure these filenames and extensions match your GitHub images folder.
         const singkuScreenshots = [
@@ -625,8 +625,7 @@
                     "Aims to promote environmental sustainability and food assistance in Mabalacat City."
                 ],
                 tech: ["ESP32", "Arduino C++", "Mobile App (WiFi)", "Sensors & Actuators", "IoT Architecture"],
-                youtubeUrl: "https://www.youtube.com/watch?v=MbBgzHwmy9g",
-                youtubeEmbedId: "MbBgzHwmy9g"
+                youtubeUrl: "https://youtu.be/MbBgzHwmy9g?si=VkXCcHVxyBfY2t2y"
             },
 
             singku: {
@@ -674,29 +673,29 @@
             ).join('');
 
             let screenshotsHTML = '';
-            let youtubeHTML = '';
+            let videoSectionHTML = '';
 
-            if (key === 'greengrain' && data.youtubeEmbedId) {
-                youtubeHTML = `
+            if (key === 'greengrain') {
+                videoSectionHTML = `
                     <div class="pt-5 border-t border-slate-200">
                         <div class="mb-3 flex items-center justify-between">
                             <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-slate-900">
-                                Capstone Project Video Demonstration
+                                Project Demonstration Video
                             </h4>
-                            <a href="${data.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-indigo-600 hover:underline flex items-center gap-1">
+                            <a href="https://youtu.be/MbBgzHwmy9g?si=VkXCcHVxyBfY2t2y" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-indigo-600 hover:underline flex items-center gap-1">
                                 <span>Watch on YouTube</span>
                                 <i class="fa-solid fa-external-link-alt text-[10px]"></i>
                             </a>
                         </div>
-                        <div class="relative w-full overflow-hidden border border-slate-200 bg-slate-900" style="padding-top: 56.25%;">
-                            <iframe
-                                src="https://www.youtube.com/embed/${data.youtubeEmbedId}"
-                                title="Green-Grain Hub: A Microcontroller-Based Waste to Rice Dispenser Demonstration"
-                                class="absolute top-0 left-0 w-full h-full"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen
-                            ></iframe>
+                        <div class="relative w-full overflow-hidden border border-slate-200 bg-slate-900 shadow-sm" style="padding-top: 56.25%;">
+                            <iframe 
+                                src="https://www.youtube.com/embed/MbBgzHwmy9g" 
+                                title="Green-Grain Hub Demonstration" 
+                                class="absolute top-0 left-0 w-full h-full" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                            </iframe>
                         </div>
                     </div>
                 `;
@@ -772,7 +771,7 @@
                         </div>
                     </div>
 
-                    ${youtubeHTML}
+                    ${videoSectionHTML}
                     ${screenshotsHTML}
                 </div>
             `;
