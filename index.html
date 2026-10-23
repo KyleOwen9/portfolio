@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -406,7 +405,7 @@
         </div>
     </section>
 
-    <!-- Education & Certifications Section -->
+  <!-- Education & Certifications Section -->
     <section id="education" class="py-20 border-b border-slate-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -625,7 +624,9 @@
                     "Developer mobile application displaying real-time metrics, such as total bottles collected, container capacity alerts, and rice supply level.",
                     "Aims to promote environmental sustainability and food assistance in Mabalacat City."
                 ],
-                tech: ["ESP32", "Arduino C++", "Mobile App (WiFi)", "Sensors & Actuators", "IoT Architecture"]
+                tech: ["ESP32", "Arduino C++", "Mobile App (WiFi)", "Sensors & Actuators", "IoT Architecture"],
+                youtubeUrl: "https://www.youtube.com/watch?v=MbBgzHwmy9g",
+                youtubeEmbedId: "MbBgzHwmy9g"
             },
 
             singku: {
@@ -673,6 +674,33 @@
             ).join('');
 
             let screenshotsHTML = '';
+            let youtubeHTML = '';
+
+            if (key === 'greengrain' && data.youtubeEmbedId) {
+                youtubeHTML = `
+                    <div class="pt-5 border-t border-slate-200">
+                        <div class="mb-3 flex items-center justify-between">
+                            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-slate-900">
+                                Capstone Project Video Demonstration
+                            </h4>
+                            <a href="${data.youtubeUrl}" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-indigo-600 hover:underline flex items-center gap-1">
+                                <span>Watch on YouTube</span>
+                                <i class="fa-solid fa-external-link-alt text-[10px]"></i>
+                            </a>
+                        </div>
+                        <div class="relative w-full overflow-hidden border border-slate-200 bg-slate-900" style="padding-top: 56.25%;">
+                            <iframe
+                                src="https://www.youtube.com/embed/${data.youtubeEmbedId}"
+                                title="Green-Grain Hub: A Microcontroller-Based Waste to Rice Dispenser Demonstration"
+                                class="absolute top-0 left-0 w-full h-full"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                    </div>
+                `;
+            }
 
             if (key === 'singku') {
                 screenshotsHTML = `
@@ -744,6 +772,7 @@
                         </div>
                     </div>
 
+                    ${youtubeHTML}
                     ${screenshotsHTML}
                 </div>
             `;
