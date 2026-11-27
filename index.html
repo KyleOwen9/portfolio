@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -68,6 +69,75 @@
             border-color: #0f172a;
             box-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.08);
             transform: translateY(-2px);
+        }
+
+        /* Project thumbnails */
+        .project-thumbnail {
+            width: 100%;
+            height: 176px;
+            object-fit: cover;
+            object-position: top;
+            background: #f1f5f9;
+            display: block;
+        }
+
+        /* Laravel custom CSS placeholder */
+        .laravel-placeholder {
+            width: 100%;
+            height: 176px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.12), transparent 35%),
+                linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 1px solid #e2e8f0;
+            color: #475569;
+        }
+
+        .laravel-placeholder .placeholder-icon {
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #e11d48;
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .laravel-placeholder .placeholder-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #64748b;
+        }
+
+        /* Profile photo */
+        .profile-photo {
+            width: 112px;
+            height: 112px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.10);
+        }
+
+        /* Clickable credential cards */
+        .credential-link {
+            display: block;
+            transition: all 0.2s ease;
+        }
+
+        .credential-link:hover {
+            border-color: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(15, 23, 42, 0.06);
         }
 
         /* Singku screenshot gallery */
@@ -168,13 +238,13 @@
                     </p>
 
                     <div class="flex flex-wrap items-center gap-4 pt-4">
-                                                <a href="#projects" class="px-6 py-3.5 bg-slate-900 hover:bg-indigo-600 text-white font-heading font-medium text-sm transition-colors flex items-center space-x-2">
+                        <a href="#projects" class="px-6 py-3.5 bg-slate-900 hover:bg-indigo-600 text-white font-heading font-medium text-sm transition-colors flex items-center space-x-2">
                             <span>Explore Portfolio</span>
                             <i class="fa-solid fa-arrow-down-long text-xs"></i>
                         </a>
 
                         <a href="#contact" class="px-6 py-3.5 border border-slate-300 hover:border-slate-900 text-slate-800 font-heading font-medium text-sm transition-colors">
-                                                        Contact Info
+                            Contact Info
                         </a>
                     </div>
 
@@ -195,10 +265,22 @@
 
                 <div class="lg:col-span-4">
                     <div class="p-6 bg-slate-50 border border-slate-200 font-mono text-xs space-y-4">
+
+                        <!-- Profile Photo -->
+                        <div class="flex justify-center pt-2">
+                            <img
+                                src="images/Profile.jpg"
+                                alt="Kyle Owen Manguerra profile photo"
+                                class="profile-photo"
+                                loading="lazy"
+                                onerror="this.style.display='none'"
+                            >
+                        </div>
+
                         <div class="flex items-center justify-between border-b border-slate-200 pb-3">
                             <span class="font-bold text-slate-800 uppercase tracking-wider font-heading">Developer Card</span>
                             <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-semibold">Active</span>
-                                                    </div>
+                        </div>
 
                         <div class="space-y-2 text-slate-600">
                             <p><strong class="text-slate-900">Full Name:</strong> Kyle Owen A. Manguerra</p>
@@ -242,12 +324,12 @@
                             <i class="fa-solid fa-receipt text-slate-400 group-hover:text-indigo-600 transition-colors"></i>
                         </div>
 
-                        <!-- Project preview thumbnail -->
+                        <!-- POS Project Thumbnail -->
                         <div class="mb-5 overflow-hidden border border-slate-200 bg-slate-50">
                             <img
                                 src="pos-images/1.png"
                                 alt="Clothing POS system screenshot preview"
-                                class="w-full h-44 object-cover object-top"
+                                class="project-thumbnail"
                                 loading="lazy"
                                 onerror="this.style.display='none'"
                             >
@@ -280,6 +362,18 @@
                             <span class="px-2.5 py-1 bg-indigo-50 text-indigo-700 font-mono text-xs border border-indigo-200">Laravel Framework</span>
                             <i class="fa-solid fa-cart-shopping text-slate-400 group-hover:text-indigo-600 transition-colors"></i>
                         </div>
+
+                        <!-- Custom CSS Placeholder - No Screenshot Available Yet -->
+                        <div class="mb-5 overflow-hidden">
+                            <div class="laravel-placeholder">
+                                <div class="placeholder-icon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </div>
+                                <span class="font-heading font-bold text-slate-800 text-sm">E-Commerce Platform</span>
+                                <span class="placeholder-label mt-2">Laravel · PHP · MySQL</span>
+                            </div>
+                        </div>
+
                         <h3 class="text-xl font-heading font-bold text-slate-900 group-hover:text-indigo-600 transition-colors mb-2">
                             Full-Featured Laravel E-Commerce Web App
                         </h3>
@@ -288,8 +382,8 @@
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-100 space-y-4">
-                                                <div class="flex flex-wrap gap-1.5 font-mono text-xs text-slate-600">
-                                                                                <span class="bg-slate-50 px-2 py-0.5 border border-slate-200">Laravel</span>
+                        <div class="flex flex-wrap gap-1.5 font-mono text-xs text-slate-600">
+                            <span class="bg-slate-50 px-2 py-0.5 border border-slate-200">Laravel</span>
                             <span class="bg-slate-50 px-2 py-0.5 border border-slate-200">Blade</span>
                             <span class="bg-slate-50 px-2 py-0.5 border border-slate-200">REST APIs</span>
                         </div>
@@ -307,6 +401,23 @@
                             <span class="px-2.5 py-1 bg-emerald-50 text-emerald-700 font-mono text-xs border border-emerald-200">Capstone IoT Project</span>
                             <i class="fa-solid fa-recycle text-emerald-600"></i>
                         </div>
+
+                        <!-- Green-Grain Hub YouTube Thumbnail -->
+                        <div class="mb-5 overflow-hidden border border-slate-200 bg-slate-50 relative group/video">
+                            <img
+                                src="https://img.youtube.com/vi/MbBgzHwmy9g/hqdefault.jpg"
+                                alt="Green-Grain Hub reverse vending machine demonstration video thumbnail"
+                                class="project-thumbnail"
+                                loading="lazy"
+                                onerror="this.src='https://img.youtube.com/vi/MbBgzHwmy9g/0.jpg'"
+                            >
+                            <div class="absolute inset-0 flex items-center justify-center bg-slate-900/20 group-hover/video:bg-slate-900/35 transition-colors">
+                                <div class="w-12 h-12 rounded-full bg-red-600 text-white flex items-center justify-center shadow-lg">
+                                    <i class="fa-solid fa-play ml-1"></i>
+                                </div>
+                            </div>
+                        </div>
+
                         <h3 class="text-xl font-heading font-bold text-slate-900 group-hover:text-emerald-600 transition-colors mb-2">
                             Green-Grain Hub: Reverse Vending Machine (RVM)
                         </h3>
@@ -335,11 +446,12 @@
                             <i class="fa-solid fa-map-location-dot text-slate-400 group-hover:text-indigo-600 transition-colors"></i>
                         </div>
 
+                        <!-- Python CLI Project Thumbnail -->
                         <div class="mb-5 overflow-hidden border border-slate-200 bg-slate-50">
                             <img
                                 src="python-map.png"
                                 alt="CLI Python navigation program output showing route details"
-                                class="w-full h-44 object-cover object-top"
+                                class="project-thumbnail"
                                 loading="lazy"
                                 onerror="this.style.display='none'"
                             >
@@ -374,11 +486,12 @@
                             <i class="fa-solid fa-mug-hot text-slate-400 group-hover:text-indigo-600 transition-colors"></i>
                         </div>
 
+                        <!-- Singku Cafe Project Thumbnail -->
                         <div class="mb-5 overflow-hidden border border-slate-200 bg-slate-50">
                             <img
-                                src="images/singku-preview.png"
+                                src="images/singku-1.png"
                                 alt="Singku Cafe website preview"
-                                class="w-full h-44 object-cover object-top"
+                                class="project-thumbnail"
                                 loading="lazy"
                                 onerror="this.style.display='none'"
                             >
@@ -401,7 +514,7 @@
                         <div class="flex items-center text-xs font-heading font-semibold text-indigo-600 group-hover:translate-x-1 transition-transform">
                             <span>View Website Screenshots</span>
                             <i class="fa-solid fa-arrow-right ml-2"></i>
-                                                    </div>
+                        </div>
                     </div>
                 </div>
 
@@ -435,7 +548,8 @@
                         <div class="p-2 bg-white border border-slate-200 flex items-center space-x-2"><i class="fa-brands fa-git-alt text-orange-600 text-base"></i><span class="text-slate-800 font-semibold">Git & GitHub</span></div>
                     </div>
                 </div>
-                                <div class="lg:col-span-6 p-6 bg-slate-50 border border-slate-200 space-y-4">
+
+                <div class="lg:col-span-6 p-6 bg-slate-50 border border-slate-200 space-y-4">
                     <div class="flex items-center space-x-3 text-indigo-600 mb-2">
                         <i class="fa-solid fa-microchip text-xl"></i>
                         <h3 class="font-heading font-bold text-lg text-slate-900">Python, API Integration & IoT</h3>
@@ -495,7 +609,7 @@
                         </div>
                         <p class="text-slate-500 text-sm leading-relaxed">
                             Supported inventory encoding and checking, dealer information management, billing statements, and weekly management reports using Microsoft Excel.
-                                                    </p>
+                        </p>
                     </div>
                 </div>
 
@@ -506,51 +620,94 @@
                     </div>
 
                     <div class="space-y-4">
-                        <div class="p-4 bg-white border border-slate-200 flex items-start space-x-4">
+
+                        <!-- Huawei HCIA-Datacom -->
+                        <a
+                            href="https://www.credly.com/users/kyle-owen-agapito/badges/credly"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="credential-link p-4 bg-white border border-slate-200 flex items-start space-x-4"
+                            aria-label="View Kyle's credentials on Credly"
+                        >
                             <div class="w-8 h-8 rounded bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center shrink-0">
                                 <i class="fa-solid fa-network-wired"></i>
                             </div>
-                            <div>
+                            <div class="flex-1">
                                 <div class="font-bold text-slate-900 text-sm font-sans">Huawei Certified ICT Associate (HCIA-Datacom)</div>
                                 <div class="text-slate-500 mt-0.5">Huawei Technologies</div>
+                                <div class="text-indigo-600 text-xs font-mono mt-2 flex items-center gap-1">
+                                    View Credly Profile <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </div>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="p-4 bg-white border border-slate-200 flex items-start space-x-4">
+                        <!-- CCNA Switching, Routing, and Wireless Essentials -->
+                        <a
+                            href="https://www.credly.com/users/kyle-owen-agapito/badges/credly"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="credential-link p-4 bg-white border border-slate-200 flex items-start space-x-4"
+                            aria-label="View Cisco credentials on Credly"
+                        >
                             <div class="w-8 h-8 rounded bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center shrink-0">
                                 <i class="fa-solid fa-network-wired"></i>
                             </div>
-                            <div>
+                            <div class="flex-1">
                                 <div class="font-bold text-slate-900 text-sm font-sans">CCNA - Switching, Routing, and Wireless Essentials (SRWE)</div>
                                 <div class="text-slate-500 mt-0.5">Issued: February 10, 2025 | Cisco Networking Academy</div>
+                                <div class="text-indigo-600 text-xs font-mono mt-2 flex items-center gap-1">
+                                    View Credly Profile <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </div>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="p-4 bg-white border border-slate-200 flex items-start space-x-4">
+                        <!-- Introduction to Networks -->
+                        <a
+                            href="https://www.credly.com/users/kyle-owen-agapito/badges/credly"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="credential-link p-4 bg-white border border-slate-200 flex items-start space-x-4"
+                            aria-label="View Cisco credentials on Credly"
+                        >
                             <div class="w-8 h-8 rounded bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center shrink-0">
                                 <i class="fa-solid fa-globe"></i>
                             </div>
-                            <div>
+                            <div class="flex-1">
                                 <div class="font-bold text-slate-900 text-sm font-sans">CCNA - Introduction to Networks</div>
                                 <div class="text-slate-500 mt-0.5">Issued: June 24, 2024 | Cisco Networking Academy</div>
+                                <div class="text-indigo-600 text-xs font-mono mt-2 flex items-center gap-1">
+                                    View Credly Profile <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </div>
                             </div>
-                        </div>
+                        </a>
 
-                        <div class="p-4 bg-white border border-slate-200 flex items-start space-x-4">
-                            <div class="w-8 h-8 rounded bg-indigo-50 border border-slate-200 text-indigo-600 flex items-center justify-center shrink-0">
+                        <!-- Cyber Threat Management -->
+                        <a
+                            href="https://www.credly.com/users/kyle-owen-agapito/badges/credly"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="credential-link p-4 bg-white border border-slate-200 flex items-start space-x-4"
+                            aria-label="View Cisco credentials on Credly"
+                        >
+                            <div class="w-8 h-8 rounded bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center shrink-0">
                                 <i class="fa-solid fa-user-shield"></i>
                             </div>
-                            <div>
+                            <div class="flex-1">
                                 <div class="font-bold text-slate-900 text-sm font-sans">Cyber Threat Management</div>
                                 <div class="text-slate-500 mt-0.5">Issued: April 14, 2024 | Cisco Networking Academy</div>
+                                <div class="text-indigo-600 text-xs font-mono mt-2 flex items-center gap-1">
+                                    View Credly Profile <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </div>
                             </div>
-                        </div>
+                        </a>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-        <!-- Contact Direct Section -->
+
+    <!-- Contact Direct Section -->
     <section id="contact" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="p-8 md:p-12 border border-slate-900 bg-slate-900 text-white flex flex-col md:flex-row items-center justify-between gap-8">
@@ -620,7 +777,7 @@
         </button>
 
         <button onclick="changeScreenshot(-1, event)" class="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center text-white hover:text-indigo-300" aria-label="Previous screenshot">
-                        <i class="fa-solid fa-chevron-left text-2xl"></i>
+            <i class="fa-solid fa-chevron-left text-2xl"></i>
         </button>
 
         <div class="max-w-6xl w-full flex flex-col items-center" onclick="event.stopPropagation()">
@@ -632,7 +789,8 @@
             <i class="fa-solid fa-chevron-right text-2xl"></i>
         </button>
     </div>
-        <script>
+
+    <script>
         // Mobile Navigation
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -734,7 +892,8 @@
                 tech: ['HTML5', 'CSS3', 'JavaScript']
             }
         };
-                    // Screenshot Collections
+
+        // Screenshot Collections
         const posScreenshots = [
             'pos-images/1.png',
             'pos-images/2.png',
@@ -787,7 +946,7 @@
             if (key === 'greengrain') {
                 videoSectionHTML = `
                     <div class="pt-5 border-t border-slate-200">
-                                            <div class="mb-3 flex items-center justify-between">
+                        <div class="mb-3 flex items-center justify-between">
                             <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-slate-900">
                                 Project Demonstration Video
                             </h4>
@@ -880,7 +1039,8 @@
                     </div>
                 `;
             }
-                        if (key === 'navigation') {
+
+            if (key === 'navigation') {
                 screenshotsHTML = `
                     <div class="pt-5 border-t border-slate-200 space-y-4">
                         <div>
@@ -907,7 +1067,7 @@
                                 class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-900 hover:bg-indigo-600 text-white text-xs font-heading font-semibold transition-colors">
                                 <i class="fa-solid fa-download"></i>
                                 Download Python Project (.ZIP)
-                                                            </a>
+                            </a>
                             <a href="https://github.com/KyleOwen9/portfolio" target="_blank" rel="noopener noreferrer"
                                 class="inline-flex items-center gap-2 px-4 py-2.5 border border-slate-300 hover:border-slate-900 text-slate-700 text-xs font-heading font-semibold transition-colors">
                                 <i class="fa-brands fa-github"></i>
@@ -992,6 +1152,7 @@
                 currentGalleryScreenshots = singkuScreenshots;
                 currentGalleryName = 'Singku Cafe';
             }
+
             currentScreenshotIndex = index;
             updateScreenshotLightbox();
 
